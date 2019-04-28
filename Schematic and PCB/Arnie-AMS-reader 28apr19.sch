@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:AMS_HAN_ESP_Buck_2-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -701,12 +700,12 @@ $EndComp
 $Comp
 L Device:C_Small C?
 U 1 1 5C930877
-P 2650 1750
-F 0 "C?" H 2742 1796 50  0000 L CNN
-F 1 "10uF XR7" H 2742 1705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 2650 1750 50  0001 C CNN
-F 3 "~" H 2650 1750 50  0001 C CNN
-	1    2650 1750
+P 2300 1850
+F 0 "C?" H 2392 1896 50  0000 L CNN
+F 1 "5uF X7R" H 2392 1805 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 2300 1850 50  0001 C CNN
+F 3 "~" H 2300 1850 50  0001 C CNN
+	1    2300 1850
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -746,7 +745,7 @@ L Device:C_Small C?
 U 1 1 5C9505FE
 P 4350 2050
 F 0 "C?" H 4442 2096 50  0000 L CNN
-F 1 "10uF XR7" H 4442 2005 50  0000 L CNN
+F 1 "10uF X7R" H 4442 2005 50  0000 L CNN
 F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 4350 2050 50  0001 C CNN
 F 3 "~" H 4350 2050 50  0001 C CNN
 	1    4350 2050
@@ -795,19 +794,14 @@ Wire Wire Line
 	2650 2100 2650 2050
 Wire Wire Line
 	2650 2050 2900 2050
-Text Notes 1850 2150 0    50   ~ 0
+Text Notes 1250 2150 0    50   ~ 0
 Vprg1/2 -> 3.3V
 Wire Wire Line
 	2900 1950 2650 1950
 Wire Wire Line
 	2650 1950 2650 2050
 Connection ~ 2650 2050
-Wire Wire Line
-	2800 1650 2650 1650
 Connection ~ 2800 1650
-Wire Wire Line
-	2650 1850 2650 1950
-Connection ~ 2650 1950
 $Comp
 L Device:R R?
 U 1 1 5C97BD58
@@ -876,11 +870,8 @@ Connection ~ 2150 4700
 Connection ~ 2850 5100
 Wire Wire Line
 	2850 5100 2950 5100
-Text GLabel 1900 1650 0    50   Input ~ 0
+Text GLabel 1450 1650 0    50   Input ~ 0
 HAN1
-Wire Wire Line
-	1900 1650 2650 1650
-Connection ~ 2650 1650
 Text GLabel 1900 3100 0    50   Input ~ 0
 HAN2
 Wire Wire Line
@@ -914,4 +905,64 @@ Wire Notes Line
 	4900 3200 1100 3200
 Wire Notes Line
 	1100 1300 1100 3200
+Wire Wire Line
+	2300 1650 2800 1650
+$Comp
+L power:GND #PWR?
+U 1 1 5CC65773
+P 2300 2000
+F 0 "#PWR?" H 2300 1750 50  0001 C CNN
+F 1 "GND" H 2305 1827 50  0000 C CNN
+F 2 "" H 2300 2000 50  0001 C CNN
+F 3 "" H 2300 2000 50  0001 C CNN
+	1    2300 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R_load
+U 1 1 5CC6B169
+P 5200 2100
+F 0 "R_load" V 5100 2200 50  0000 R CNN
+F 1 "150 ohm -> 3,2V / 21 mA" V 5400 2700 50  0000 R CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 5130 2100 50  0001 C CNN
+F 3 "~" H 5200 2100 50  0001 C CNN
+	1    5200 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 1950 5200 1950
+Connection ~ 4600 1950
+$Comp
+L power:GND #PWR?
+U 1 1 5CC70A25
+P 5200 2350
+F 0 "#PWR?" H 5200 2100 50  0001 C CNN
+F 1 "GND" H 5205 2177 50  0000 C CNN
+F 2 "" H 5200 2350 50  0001 C CNN
+F 3 "" H 5200 2350 50  0001 C CNN
+	1    5200 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 2250 5200 2350
+$Comp
+L Diode:1N5819 D?
+U 1 1 5CC76ABA
+P 1700 1650
+F 0 "D?" H 1700 1434 50  0000 C CNN
+F 1 "1N5819" H 1700 1525 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 1700 1475 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 1700 1650 50  0001 C CNN
+	1    1700 1650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1550 1650 1450 1650
+Wire Wire Line
+	2300 1650 2300 1750
+Wire Wire Line
+	2300 1650 1850 1650
+Connection ~ 2300 1650
+Wire Wire Line
+	2300 2000 2300 1950
 $EndSCHEMATC
